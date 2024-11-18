@@ -1,4 +1,4 @@
-# Tech_Challenge_4_Fase :rocket:
+# Tech_Challenge_4_Fase - Grupo 60 :rocket:
 PósTech - FIAP - Tech Challenge 4ºFase - Data Analytics - 2024
 
 <h1 align="center"> Data viz and production models </h1>
