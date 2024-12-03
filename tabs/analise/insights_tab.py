@@ -104,11 +104,39 @@ class InsightsTab(TabInterface):
 
             #Insight Pandemia - Covid 19
             if selected_feature == "Pandemia - Covid-19":
-                st.markdown (
-                """
-                Teste
-                """
-                )          
+                st.markdown ('''
+                            <p style="font-size: 16px">
+                            <br>A pandemia de Covid-19 trouxe impactos significativos para diversos setores da economia global, e o mercado de petróleo foi um dos mais afetados. 
+                            A crise sanitária, iniciada no final de 2019 e intensificada em 2020, resultou em uma redução drástica da demanda por petróleo devido à desaceleração econômica e às medidas de isolamento social implementadas em praticamente todos os países.</br>
+                            <br>Ao analisarmos a série histórica, durante a pandemia, o valor do barril de petróleo atingiu o seu menor valor, chegando a atingir $9,12 o barril.</br>
+                            </p>                       
+                ''',unsafe_allow_html=True) 
+
+                #Inserindo imagem - Pico_Valor_Petroleo
+                insert_image(image_path = r'assets/img/pico_valor_petroleo.png',
+                caption = 'Maior e menor pico do valor de petróleo nos últimos 20 anos')
+
+                st.markdown ('''
+                            <p style="font-size: 16px">
+                            <br>Com o fechamento de indústrias, o cancelamento de voos, a diminuição do transporte terrestre e a interrupção de atividades econômicas, o consumo de petróleo despencou. 
+                            A Agência Internacional de Energia (AIE) estimou que a demanda global por petróleo caiu em mais de 9 milhões de barris por dia em 2020, em comparação ao ano anterior. 
+                            Este foi um dos declínios mais acentuados já registrados na história moderna do setor.</br>
+                            <br>Ao analisarmos a série histórica, durante a pandemia, o valor do barril de petróleo atingiu o seu menor valor, chegando a atingir $9,12 o barril.</br>
+                            </p>                       
+                ''',unsafe_allow_html=True) 
+
+                #Inserindo imagem - Media_Mensal_2008
+                insert_image(image_path = r'assets/img/media_mensal_2020.png',
+                caption = 'Média mensal do valor do barril de petróleo em 2020')
+
+                st.markdown ('''
+                            <p style="font-size: 16px">
+                            <br>A crise causada pela pandemia destacou a vulnerabilidade do setor de petróleo a choques externos, acelerou debates sobre a transição energética e incentivou investimentos em fontes de energia renovável. 
+                            Além disso, reforçou a importância da cooperação internacional entre os países produtores para evitar desequilíbrios severos no mercado global.
+                            A queda do petróleo durante a pandemia de Covid-19 foi um episódio sem precedentes, refletindo o profundo impacto de uma crise global sobre uma commodity essencial e evidenciando a necessidade de adaptação em um cenário econômico e energético em constante transformação. 
+                            Este foi um dos declínios mais acentuados já registrados na história moderna do setor.</br>
+                            </p>                       
+                ''',unsafe_allow_html=True) 
 
             #Insight Guerra na Rússia
             if selected_feature == "Guerra na Rússia":

@@ -4,7 +4,10 @@ from tabs.intro.metodologia_tab import MetodologiaTab
 from tabs.intro.objetivo_tab import ObjetivoTab 
 from util.layout import output_layout
 
-st.set_page_config(page_title="Introdução | Tech Challenge 4 | FIAP", layout='wide')
+st.set_page_config(layout='centered', 
+                   page_title='Tech Challenge 4 - GRUPO 60', 
+                   page_icon='⛽', initial_sidebar_state='auto')
+
 output_layout()
 
 with st.container():

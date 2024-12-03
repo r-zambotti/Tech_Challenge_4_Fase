@@ -1,7 +1,10 @@
 import streamlit as st
 from util.layout import output_layout
 
-st.set_page_config(page_title="Referências | Tech Challenge 4 | FIAP", layout='wide')
+st.set_page_config(layout='centered', 
+                   page_title='Tech Challenge 4 - GRUPO 60', 
+                   page_icon='⛽', initial_sidebar_state='auto')
+
 output_layout()
 
 with st.container():
