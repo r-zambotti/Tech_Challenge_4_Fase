@@ -13,5 +13,3 @@ class ObjetivoTab(TabInterface):
             st.markdown('''
                  Introduzir objetivo
             ''')
-
-            #st.image('assets/img/refinaria.png', caption='Refinaria de petróleo: transformando o ouro negro em produtos essenciais')

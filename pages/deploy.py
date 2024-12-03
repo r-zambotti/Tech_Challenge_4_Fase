@@ -2,6 +2,10 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
+st.set_page_config(layout='centered', 
+                   page_title='Tech Challenge 4 - GRUPO 60', 
+                   page_icon='⛽', initial_sidebar_state='auto')
+
 # Show the page title and description.
 #st.set_page_config(page_title="Movies dataset", page_icon="🎬")
 st.title("💻 Dashboard - Análise de Preço do Petróleo")

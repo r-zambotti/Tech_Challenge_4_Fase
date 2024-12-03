@@ -17,5 +17,3 @@ class IntroTab(TabInterface):
             A análise detalhada desses insights não apenas oferece uma compreensão mais profunda das forças que impulsionam as flutuações do preço do petróleo, mas também fornece um guia para tomar decisões estratégicas informadas. Ao longo deste artigo, examinaremos cada insight com exemplos concretos e destacaremos sua relevância no contexto do mercado global de energia.\n
             Portanto, prepare-se para uma jornada pela geopolítica, crises econômicas, demanda energética e inovações tecnológicas, enquanto desvendamos os mistérios por trás das oscilações do preço do petróleo e exploramos as implicações desses insights para o futuro do mercado energético global."
             ''')
-           
-            #st.image('assets/img/oil-and-gas.jpg', caption='Extração de petróleo: alimentando o mundo com energia', use_column_width=True, output_format='auto')
