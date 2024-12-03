@@ -128,7 +128,7 @@ class InsightsTab(TabInterface):
                             </p>                       
                 ''',unsafe_allow_html=True) 
 
-                #Inserindo imagem - Media_Mensal_2008
+                #Inserindo imagem - Media_Mensal_2020
                 insert_image(image_path = r'assets/img/media_mensal_2020.png',
                 caption = 'Média mensal do valor do barril de petróleo em 2020')
 
@@ -143,8 +143,37 @@ class InsightsTab(TabInterface):
 
             #Insight Guerra na Rússia
             if selected_feature == "Guerra na Rússia":
-                st.markdown (
-                """
-                Teste
-                """
-                )                     
+
+                st.subheader(":gray[Conflito entre Rússia e Ucrania e o impacto no preço do Petroléo]")     
+
+                st.markdown ('''
+                            <p style="font-size: 16px">
+                            <br>A guerra entre a Rússia e a Ucrânia, iniciada em fevereiro de 2022, impactou profundamente os mercados globais, incluindo o setor energético. 
+                            A Rússia é um dos maiores exportadores de petróleo e gás natural do mundo, e o conflito gerou tensões significativas na oferta global de energia, resultando em flutuações acentuadas nos preços do petróleo.</br>                           
+                            </p>                       
+                ''',unsafe_allow_html=True) 
+
+                #Inserindo imagem - Media_Mensal_2008
+                insert_image(image_path = r'assets/img/Guerra_Russia_Evolucao.png',
+                caption = 'Evolução do Petróleo - Últimos 6 meses')
+
+                st.markdown ('''
+                            <p style="font-size: 16px">
+                            <br>É perceptivel como o conflito iniciado pela Rússia elevou o preço do petróleo, devido ao ataque surpresa realizado em Fevereiro, 
+                            países ocidentais, liderados pelos Estados Unidos e pela União Europeia, impuseram severas sanções à Rússia, incluindo restrições à exportação de petróleo e gás.
+                            Podemos notar que uns dos maiores influenciadores no preço do petróleo é causada por conflitos armados e por influência política.</br> 
+                ''',unsafe_allow_html=True) 
+
+                #Inserindo imagem - Media_Mensal_2008
+                insert_image(image_path = r'assets/img/noticia_guerra_russia.jpg',
+                source = 'https://economia.uol.com.br/cotacoes/noticias/redacao/2022/03/09/preco-do-petroleo-guerra-na-ucrania.htm',
+                caption = 'Petróleo já subiu 20% desde o início da guerra na Ucrânia, há 14 dias')     
+
+                st.markdown ('''                                                    
+                            <br> Decorrente dessas sanções, a Rússia buscou redirecionar parte da sua exportação para países como China e Índia, realizando a venda com descontos significativos. 
+                            Existia uma grande preocupação Europeia em relação ao não fornecimento de gás natural da Rússia para a Europa, por conta da sua dependência. Isso levou à maior demanda por petróleo como substituto em algumas indústrias, aumentando os preços.</br>                                                                                             
+                            <br>O cenário atual não é otimista, já que o conflito não tem previsão para encerrar, gerando assim impacto no preço do petróleo.
+                            A guerra evidenciou a fragilidade do mercado de energia diante de tensões geopolíticas e reforçou a importância de diversificar fontes de energia e rotas de fornecimento para mitigar futuros impactos econômicos.</br>                      
+                            </p>  
+                                                          
+                ''',unsafe_allow_html=True) 
