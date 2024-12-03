@@ -21,7 +21,7 @@ class InsightsTab(TabInterface):
         with self.tab:
             st.subheader(":orange[Selecione um insight]")
             # select one feature to plot with brent
-            features_to_plot = ['Eleição brasileira', 'Crise Econômica de 2008', 'Pandemia - Covid-19', 'Guerra na Rússia']           
+            features_to_plot = ['Eleição brasileira', 'Crise Econômica de 2008', 'Pandemia - COVID-19', 'Guerra na Rússia']           
             selected_feature = st.selectbox('', features_to_plot)
             st.markdown('---')
 
@@ -103,7 +103,9 @@ class InsightsTab(TabInterface):
                 caption = '2008, o ano em que o petróleo enlouqueceu o mercado')
 
             #Insight Pandemia - Covid 19
-            if selected_feature == "Pandemia - Covid-19":
+            if selected_feature == "Pandemia - COVID-19":
+                st.subheader(":gray[Impacto do Petróleo durante a pandemia de COVID-19]")
+
                 st.markdown ('''
                             <p style="font-size: 16px">
                             <br>A pandemia de Covid-19 trouxe impactos significativos para diversos setores da economia global, e o mercado de petróleo foi um dos mais afetados. 

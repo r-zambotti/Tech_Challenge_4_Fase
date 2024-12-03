@@ -27,7 +27,7 @@ st.markdown('---')
 # reruns (e.g. if the user interacts with the widgets).
 @st.cache_data
 def load_data():
-    df = pd.read_csv("df_ipea_dash.csv")
+    df = pd.read_csv("bases/df_ipea_dash.csv")
     return df
 
 df = load_data()
@@ -39,7 +39,7 @@ Produtos = df.Produto.unique()
 # Filter the dataframe based on the widget input and reshape it.
 df_filtered = df[(df['Produto'].isin(Produtos)) & (df["Ano"].between(Ano[0], Ano[1]))]
 df_reshaped = df_filtered.pivot_table(
-    index="Ano", values=["Media","Minima","Maxima","Variacao_Media"], aggfunc="sum", fill_value=0
+    index="Ano", values=["Média","Mínima","Máxima","Variação_Média"], aggfunc="sum", fill_value=0
 )
 df_reshaped = df_reshaped.sort_values(by="Ano", ascending=False)
 
@@ -50,7 +50,7 @@ st.dataframe(
     column_config={"Ano": st.column_config.TextColumn("Ano")},
 )
 
-df_reshaped = df_reshaped[['Media','Minima','Maxima']]
+df_reshaped = df_reshaped[['Média','Mínima','Máxima']]
 # Display the data as an Altair chart using `st.altair_chart`.
 df_chart = pd.melt(
     df_reshaped.reset_index(), id_vars="Ano", var_name="Produto", value_name="1"
@@ -61,7 +61,7 @@ chart = (
     .mark_line()
     .encode(
         x=alt.X("Ano:N", title="Anos"),
-        y=alt.Y("1:Q", title="Preço do Barril de Petróleo (R$)"),
+        y=alt.Y("1:Q", title="Preço do Barril de Petróleo ($)"),
         color="Produto:N",
     )
     .properties(height=320)
