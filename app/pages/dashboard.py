@@ -1,6 +1,7 @@
 import altair as alt
 import pandas as pd
 import streamlit as st
+import utilidades as ut
 import os
 
 # layout
@@ -78,121 +79,46 @@ st.altair_chart(chart, use_container_width=True)
 
 st.markdown('---')
 
-# # Definindo o diretório base onde estão localizados os arquivos
-# base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if st.button('Prever'):
+# URL da página do ipeadata
+    url = "http://www.ipeadata.gov.br/ExibeSerie.aspx?module=m&serid=1650971490&oper=view"
 
-# # Configurar caminhos absolutos
-# model_path = os.path.join(base_dir, 'model_lstm', 'model_lstm.h5')
-# scaler_path = os.path.join(base_dir, 'model_lstm', 'scaler.joblib')
-# excel_path = os.path.join(base_dir, 'dataset', 'Petroleo.xlsx')
+# Chame a função e obtenha o DataFrame
+    df_dados = ut.extrair_dados_ipeadata(url)
 
-# try:
-#     # Carregar modelo e scaler
-#     model_lstm, scaler = load_model_and_scaler(model_path, scaler_path)
-# except FileNotFoundError:
-#     st.error("Arquivo de modelo ou scaler não encontrado. Verifique os caminhos configurados.")
-#     st.stop()
-# except Exception as e:
-#     st.error(f"Erro ao carregar o modelo e o scaler: {e}")
-#     st.stop()
+    df_ipea = ut.processar_dados(df_dados)
 
-# # Carregar dados e preprocessar
-# data_corte = pd.to_datetime('2020-05-03')
-# try:
-#     df, data_scaled, _ = load_and_process_data(excel_path, data_corte)
-# except FileNotFoundError:
-#     st.error("Arquivo de dados não encontrado. Verifique o caminho configurado.")
-#     st.stop()
-# except Exception as e:
-#     st.error(f"Erro ao carregar e preprocessar os dados: {e}")
-#     st.stop()
+    df_prophet = ut.filtrar_dados_prophet(df_ipea,1)
 
-# # Definir a data inicial e o limite de dias para a previsão
-# DATA_INICIAL = date(2024, 5, 20)
-# LIMITE_DIAS = 15
+    treino, teste = ut.dividir_treino_teste(df_ipea, 10)
 
-# st.header(":orange[Previsão do Preço do Petróleo]", divider='orange')
-# st.info(f"Neste campo, você pode inserir a data desejada para a previsão do preço do barril de petróleo. Para garantir a precisão das previsões, estabelecemos um limite de {LIMITE_DIAS} dias a partir de **20 de maio de 2024**, última data do preço do petróleo na nossa base de dados. Isso assegura que as projeções sejam baseadas em dados recentes e relevantes, proporcionando insights confiáveis sobre a tendência de preço no curto prazo.")
+    qtd_dias_prev = 3
 
-# # Entrada de data pelo usuário
-# with st.container():
-#     col, _ = st.columns([2, 6])
-#     with col:
-#         min_date = DATA_INICIAL + timedelta(days=1)
-#         max_date = DATA_INICIAL + timedelta(days=LIMITE_DIAS)
-#         end_date = st.date_input(
-#             "**Escolha a data de previsão:**", 
-#             min_value=min_date, 
-#             max_value=max_date,
-#             value=min_date,
-#         )
+    for dia in range(qtd_dias_prev):
+        teste_f = teste
+        novo_registro = {
+            "ds": ut.acrescentar_um_dia(teste_f.iloc[-1]['ds']),
+            "y": 0,
+            "open": teste_f.iloc[-1]['y']
+        }
 
-# # Calcular o número de dias para a previsão com base na data selecionada
-# days = (end_date - DATA_INICIAL).days
+        teste_f = ut.adicionar_registro(teste_f, novo_registro)
 
-# sequence_length = 10
-
-# if st.button('Prever'):
-#     with st.spinner('Realizando a previsão...'):
-#         try:
-#             forecast = predict(days, data_scaled, sequence_length)
-#             if forecast is None:
-#                 st.error("Ocorreu um erro durante a previsão. Verifique os logs para mais detalhes.")
-#                 st.stop()
-            
-#             forecast_dates = predict_dates(days, df)
-            
-#             train_size = int(len(data_scaled) * 0.8)
-#             X_test, y_test = create_sequences(data_scaled[train_size:], sequence_length)
-#             r2_lstm, mse_lstm, mae_lstm, mape_lstm, rmse_lstm = evaluate_lstm_model(model_lstm, X_test, y_test, scaler)
-            
-#             texto_descritivo = f"Performance do Modelo: R² = {round(r2_lstm, 5)}, MSE = {round(mse_lstm, 5)}, MAE = {round(mae_lstm, 5)}, MAPE = {round(mape_lstm, 5)}, RMSE = {round(rmse_lstm, 5)}"
-#             titulo_grafico = "Modelo LSTM - Previsão preço do Petróleo"
+        predict, forecast = ut.utilizar_prophet(treino,teste_f)
     
-#             trace1 = go.Scatter(x=df['Data'], y=df['Close'], mode='lines', name='Dados Históricos')
-#             trace2 = go.Scatter(x=forecast_dates, y=forecast.flatten(), mode='lines', name='Previsão LSTM')
-    
-#             layout = go.Layout(
-#                 title=titulo_grafico,
-#                 xaxis={'title': "Data"},
-#                 yaxis={'title': "Preço do Petróleo (US$)"},
-#                 legend={'x': 0.1, 'y': 0.9},
-#                 annotations=[
-#                     go.layout.Annotation(
-#                         text=texto_descritivo,
-#                         align='left',
-#                         showarrow=False,
-#                         xref='paper',
-#                         yref='paper',
-#                         x=0,
-#                         y=1.1,
-#                         bordercolor='black',
-#                         borderwidth=1
-#                     )
-#                 ]
-#             )
-    
-#             fig = go.Figure(data=[trace1, trace2], layout=layout)
-#             fig.update_yaxes(range=[60, 110])
-#             st.plotly_chart(fig)
+        novo_registro = {
+            "ds": teste_f.iloc[-1]['ds'],
+            "y": round(predict.iloc[-1]['yhat'],2),
+            "open": teste.iloc[-1]['y']
+        }
 
-#             st.subheader(':gray[Tabela de Previsões de Preço por Data:]', divider='orange')
-            
-#             # Montando a tabela com os resultados da previsão
-#             forecast_df = pd.DataFrame({
-#                 "Data": [date.strftime("%Y-%m-%d") for date in forecast_dates],  
-#                 "Preço": forecast.flatten().round(2)  
-#             })
+        teste =  ut.adicionar_registro(teste, novo_registro)
 
-#             st.write(forecast_df.set_index("Data")) 
+        
 
-#             st.success("Previsão concluída com sucesso! :white_check_mark:")
-        
-#         except FileNotFoundError as fnf_error:
-#             st.error(f"Erro ao encontrar arquivo: {fnf_error}")
-        
-#         except ValueError as value_error:
-#             st.error(f"Erro nos dados: {value_error}")
-        
-#         except Exception as e:
-#             st.error(f"Ocorreu um erro durante a previsão: {e}")
+
+    # Título do aplicativo
+    st.title("Análise da Série Temporal")
+
+    st.write(teste.tail(10))
+    st.write(predict)
