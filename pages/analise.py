@@ -1,4 +1,5 @@
 import streamlit as st
+from tabs.analise.insights_tab import InsightsTab
 from tabs.analise.modelo_mlearning_tab import LSTMTab
 from tabs.analise.metodologia_tab import MetodologiaTab
 from tabs.analise.resultados_tab import ResultadosTab
@@ -14,17 +15,19 @@ with open('assets/css/style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 with st.container():
-    st.header(":orange[Análise e Insights]")
+    st.header(":rainbow[Análise e Insights]")
 
-    tab0, tab1, tab2 = st.tabs(
+    tab0, tab1, tab2, tab3= st.tabs(
         tabs=[
+            "Insights",
             "Long Short-Term Memory Networks (LSTM)",
             "Metodologia",
             "Resultados"
         ]
     )
 
-    LSTMTab(tab0)
-    MetodologiaTab(tab1)
-    ResultadosTab(tab2)
+    InsightsTab(tab0)
+    LSTMTab(tab1)
+    MetodologiaTab(tab2)
+    ResultadosTab(tab3)
      
