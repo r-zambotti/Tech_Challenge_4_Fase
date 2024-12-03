@@ -12,7 +12,7 @@ class MetodologiaTab(TabInterface):
             st.markdown('''
                         <p style="font-size: 16px"><br>        
                         <b>Para o desenvolvimento das bases de dados, focando na criação de insights, criar dashboard interativos e desenvolver previsões futuras a respeito do valor do 
-                        barril do petróleo, utilizamos as seguintes ferramentas:</b>
+                        barril do petróleo (forecasting), utilizamos as seguintes ferramentas:</b>
             ''', unsafe_allow_html=True)       
 
             st.subheader(":gray[Python]")            

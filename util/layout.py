@@ -20,7 +20,7 @@ def output_layout():
             ),
 
             Page(
-                "./pages/deploy.py",
+                "./pages/dashboard.py",
                 "Dashboard",
                 "💻",
                 use_relative_hash=True,

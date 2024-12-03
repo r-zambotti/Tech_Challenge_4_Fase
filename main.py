@@ -18,7 +18,7 @@ with open('assets/css/style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 with st.container():
-    st.header(':rainbow[FIAP PÓS TECH – DATA ANALYTICS - GRUPO 60]')
+    st.header(':rainbow[FIAP Pós Tech – Data Analytics - Grupo 60]')
 
     tab0, tab1, tab2 = st.tabs(tabs=['Introdução', 'Objetivo', 'Metodologia'])
     

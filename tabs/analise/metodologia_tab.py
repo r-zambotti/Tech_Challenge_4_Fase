@@ -54,4 +54,4 @@ class MetodologiaTab(TabInterface):
                Além disso, o Google Colab oferece acesso a poderosos recursos de computação, incluindo GPUs, o que pode acelerar significativamente o processamento de dados e a execução de modelos complexos. Essa flexibilidade e acessibilidade tornam o Colab uma escolha ideal para a análise de grandes conjuntos de dados, como os históricos de preços do petróleo.
                """
             )
-            st.image('assets/img/Interface_Colab.png', caption='Interface do usuário do Google Colab')
+            #st.image('assets/img/Interface_Colab.png', caption='Interface do usuário do Google Colab')

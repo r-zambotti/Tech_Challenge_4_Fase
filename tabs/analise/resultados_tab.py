@@ -24,7 +24,7 @@ class ResultadosTab(TabInterface):
                 Primeiramente foi instalado as bibliotecas e realizada as importações.
                 """
             )
-            st.image('assets/img/Python_Fig_1.png', caption='Instalação de Bibliotecas e Importação de Módulos')
+            #st.image('assets/img/Python_Fig_1.png', caption='Instalação de Bibliotecas e Importação de Módulos')
 
             st.markdown(
                 """
@@ -32,7 +32,7 @@ class ResultadosTab(TabInterface):
                 """
             )  
 
-            st.image('assets/img/Python_Fig_2.png', caption='Upload do Arquivo Excel no Google Colab', use_column_width=True, output_format='auto')
+            #st.image('assets/img/Python_Fig_2.png', caption='Upload do Arquivo Excel no Google Colab', use_column_width=True, output_format='auto')
 
             st.markdown(
                 """
@@ -45,7 +45,7 @@ class ResultadosTab(TabInterface):
                 """
             )
 
-            st.image('assets/img/Python_Fig_3.png', caption='Leitura e Renomeação de Colunas no DataFrame', use_column_width=True, output_format='auto')
+            #st.image('assets/img/Python_Fig_3.png', caption='Leitura e Renomeação de Colunas no DataFrame', use_column_width=True, output_format='auto')
  
             st.markdown(
                 """
@@ -53,7 +53,7 @@ class ResultadosTab(TabInterface):
                 """
             )
 
-            st.image('assets/img/Python_Fig_4.png', caption='Código para Criação de Gráfico de Linha com Matplotlib', use_column_width=True, output_format='auto')
+            #st.image('assets/img/Python_Fig_4.png', caption='Código para Criação de Gráfico de Linha com Matplotlib', use_column_width=True, output_format='auto')
  
             st.markdown(
                 """
@@ -62,7 +62,7 @@ class ResultadosTab(TabInterface):
                 """
             )
 
-            st.image('assets/img/Python_Fig_5.png', caption='Gráfico de Variação Histórica do Preço do Petróleo (1987-2024)', use_column_width=True, output_format='auto')
+            #st.image('assets/img/Python_Fig_5.png', caption='Gráfico de Variação Histórica do Preço do Petróleo (1987-2024)', use_column_width=True, output_format='auto')
  
             st.markdown(
                 """
@@ -74,7 +74,7 @@ class ResultadosTab(TabInterface):
                 """
             )
 
-            st.image('assets/img/Python_Fig_6.png', caption='Código para Criação de Gráfico do Preço do Petróleo a partir de 03/05/2020', use_column_width=True, output_format='auto')
+            #st.image('assets/img/Python_Fig_6.png', caption='Código para Criação de Gráfico do Preço do Petróleo a partir de 03/05/2020', use_column_width=True, output_format='auto')
  
             st.markdown(
                 """
@@ -82,7 +82,7 @@ class ResultadosTab(TabInterface):
                 """
             )
 
-            st.image('assets/img/Python_Fig_7.png', caption='Gráfico de Variação do Preço do Petróleo (2020-2024) com Dados Filtrados', use_column_width=True, output_format='auto')
+            #st.image('assets/img/Python_Fig_7.png', caption='Gráfico de Variação do Preço do Petróleo (2020-2024) com Dados Filtrados', use_column_width=True, output_format='auto')
  
             st.subheader(":orange[Construção do modelo LSTM]")
 
@@ -101,7 +101,7 @@ class ResultadosTab(TabInterface):
                 """
             )
 
-            st.image('assets/img/Python_Fig_8.png', caption='Etapas de Processamento e Preparação dos Dados para a Construção do Modelo LSTM', use_column_width=True, output_format='auto')
+            #st.image('assets/img/Python_Fig_8.png', caption='Etapas de Processamento e Preparação dos Dados para a Construção do Modelo LSTM', use_column_width=True, output_format='auto')
  
             st.markdown(
                 """
@@ -118,7 +118,7 @@ class ResultadosTab(TabInterface):
                 """
             )
 
-            st.image('assets/img/Python_Fig_9.png', caption='Construção e treinamento do modelo LSTM para previsão de preços do petróleo', use_column_width=True, output_format='auto')
+            #st.image('assets/img/Python_Fig_9.png', caption='Construção e treinamento do modelo LSTM para previsão de preços do petróleo', use_column_width=True, output_format='auto')
  
             st.markdown(
                 """
@@ -134,7 +134,7 @@ class ResultadosTab(TabInterface):
                 """
             )
 
-            st.image('assets/img/Python_Fig_10.png', caption='Treinamento e avaliação do modelo LSTM, incluindo previsões e métricas de desempenho', use_column_width=True, output_format='auto')
+            #st.image('assets/img/Python_Fig_10.png', caption='Treinamento e avaliação do modelo LSTM, incluindo previsões e métricas de desempenho', use_column_width=True, output_format='auto')
  
             st.markdown(
                 """
@@ -150,7 +150,7 @@ class ResultadosTab(TabInterface):
                 """
             )
 
-            st.image('assets/img/Python_Fig_11.png', caption='Código mostrando funções para prever os próximos pontos da série temporal e gerar datas correspondentes', use_column_width=True, output_format='auto')
+            #st.image('assets/img/Python_Fig_11.png', caption='Código mostrando funções para prever os próximos pontos da série temporal e gerar datas correspondentes', use_column_width=True, output_format='auto')
  
             st.markdown(
                 """
@@ -161,7 +161,7 @@ class ResultadosTab(TabInterface):
                 """
             )
 
-            st.image('assets/img/Python_Fig_12.png', caption='Definição do número de dias previstos e geração das previsões, utilizando as funções predict() e predict_dates()', use_column_width=True, output_format='auto')
+            #st.image('assets/img/Python_Fig_12.png', caption='Definição do número de dias previstos e geração das previsões, utilizando as funções predict() e predict_dates()', use_column_width=True, output_format='auto')
  
             st.subheader(":orange[Gerando e Visualizando a Previsão do Preço do Petróleo com o Modelo LSTM]")
 
@@ -184,7 +184,7 @@ class ResultadosTab(TabInterface):
                 """
             )
 
-            st.image('assets/img/Python_Fig_13.png', caption='Código para plotar a previsão do preço do petróleo usando o modelo LSTM, com métricas de desempenho e dados históricos', use_column_width=True, output_format='auto')
+            #st.image('assets/img/Python_Fig_13.png', caption='Código para plotar a previsão do preço do petróleo usando o modelo LSTM, com métricas de desempenho e dados históricos', use_column_width=True, output_format='auto')
  
             st.markdown(
                 """
@@ -192,5 +192,5 @@ class ResultadosTab(TabInterface):
                 """
             )
 
-            st.image('assets/img/Python_Fig_14.png', caption='Visualização gráfica com a previsão do preço do petróleo', use_column_width=True, output_format='auto')
+           # st.image('assets/img/Python_Fig_14.png', caption='Visualização gráfica com a previsão do preço do petróleo', use_column_width=True, output_format='auto')
  

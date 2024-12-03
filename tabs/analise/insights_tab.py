@@ -1,6 +1,4 @@
 import streamlit as st
-import plotly.express as px
-import pandas as pd
 
 from tabs.tab import TabInterface
 
@@ -49,7 +47,6 @@ class InsightsTab(TabInterface):
                             Em resumo, embora as eleições presidenciais no Brasil possam influenciar os preços do petróleo Brent, essa influência é geralmente indireta e depende de diversos outros fatores. É difícil isolar o impacto das eleições dos demais fatores que afetam o mercado de petróleo.</br>
                             <br>
                             Abaixo podemos observar como o preço do petróleo se comportou em relação ao ano do período eleitoral com a média dos 3 anos antecedentes.</br>  
-
                             </p>
                 ''', unsafe_allow_html=True)      
 
