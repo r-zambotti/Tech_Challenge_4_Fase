@@ -65,3 +65,4 @@ st.markdown('''
             - Uma solução interativa que une storytelling e visualização de dados para facilitar a tomada de decisão.<br>
             </p>         
 ''',unsafe_allow_html=True)
+
