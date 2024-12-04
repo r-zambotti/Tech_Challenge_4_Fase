@@ -12,10 +12,29 @@ with st.container():
 
     st.markdown('''
     
-    1) What is LSTM? Introduction to Long Short-Term Memory. Disponível em: https://www.analyticsvidhya.com/blog/2021/03/introduction-to-long-short-term-memory-lstm/. Acesso em 08/06/2024.
-    2) Econometria e Machine Learning. Disponível em: https://analisemacro.com.br/econometria-e-machine-learning/mae-rmse-acc-f1-roc-r2-avaliacao-de-desempenho-de-modelos-preditivos/. Acesso em 08/06/2024.
-    3) Investing.com Brasil - Finanças, Câmbio e Investimentos. Disponível em: https://br.investing.com/. Acesso em 15/06/2024.
-    4) Crude Oil Prices Today | OilPrice.com. Disponível em: https://oilprice.com/. Acesso em 15/06/2024.
-    5) Streamlit. Streamlit Documentation. Disponível em: https://docs.streamlit.io/. Acesso em 11/06/2024.
-    6) TensorFlow. Site oficial do TensorFlow. Disponível em: https://www.tensorflow.org/?hl=pt-br. Acesso em 20/06/2024.
+    1) IPEA. Disponível em: http://www.ipeadata.gov.br/ExibeSerie.aspx?module=m&serid=1650971490&oper=view Acesso em 03/12/2024.
+    2) Streamlit. Streamlit Documentation. Disponível em: https://docs.streamlit.io/. 03/12/2024.
+    3) Prophet. Site oficial. Disponível em: https://facebook.github.io/prophet. Acesso em 03/12/2024.
     ''')
+
+with st.sidebar:
+        st.divider()
+        
+        st.subheader("Guia de Instalação:")
+
+        #Passo 1: Criação e ativação do ambiente virtual
+        st.markdown("**1º** Crie e ative um ambiente virtual:")
+
+        st.markdown("Para Windows, use:")
+        st.code("venv\\Scripts\\activate", language="shell")
+
+        st.markdown("**2º** Instale as bibliotecas com as versões corretas:")
+        st.code("pip install -r requirements.txt", language="shell")
+
+        # Passo 3: Execução do aplicativo
+        st.markdown("**3º** Execute o aplicativo:")
+        st.code("streamlit run main.py", language="shell")
+
+
+
+        

@@ -2,13 +2,7 @@ import streamlit as st
 
 from tabs.tab import TabInterface
 
-from util.utils import (normality_test, 
-                        create_warning, 
-                        create_quote, 
-                        create_curiosity, 
-                        create_insight, 
-                        create_analysis, 
-                        insert_image)
+from util.utils import (insert_image)
 
 class InsightsTab(TabInterface):
     def __init__(self, tab):

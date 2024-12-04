@@ -2,8 +2,6 @@
 ##                  Imports                  ##
 ## ----------------------------------------- ##
 
-import yfinance as yf
-
 import time
 
 import pandas as pd
@@ -11,8 +9,6 @@ import numpy as np
 
 from pandas.tseries.offsets import YearEnd
 from pandas.tseries.holiday import USFederalHolidayCalendar
-
-import pandas_ta as ta
 
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
@@ -35,33 +31,6 @@ import streamlit as st
 
 import warnings
 warnings.filterwarnings('ignore')
-
-## ----------------------------------------- ##
-##          Data Collection & Cleaning       ##
-## ----------------------------------------- ##
-
-def get_yfinance_prices(tickers, start, end):
-    '''
-    Get close prices from yfinance for a list of tickers.
-    
-    Parameters:
-    tickers (dict): dictionary with tickers and names
-    start (str): start date
-    end (str): end date
-    
-    Returns:
-    df (pd.DataFrame): dataframe with close prices
-    '''
-    df = pd.DataFrame()
-    for ticker, name in tickers.items():
-        try:
-            df[name] = yf.download(ticker, start=start, end=end)['Close']
-            # sleep for 1 second
-            time.sleep(1)
-            df.index.name = 'date'
-        except:
-            print(f'Error downloading {name}')
-    return df
 
 
 ## ----------------------------------------- ##
