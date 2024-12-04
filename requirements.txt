@@ -4,4 +4,4 @@ pandas
 pystan
 prophet
 streamlit
-st-pages==0.4.5
+beautifulsoup4
