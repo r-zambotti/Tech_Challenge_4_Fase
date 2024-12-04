@@ -63,7 +63,7 @@ class InsightsTab(TabInterface):
                 ''', unsafe_allow_html=True)
 
                 #Inserindo imagem - serie_temporal_2008
-                insert_image(image_path = r'assets/img/serie_temporal_2008.png',
+                insert_image(image_path = r'assets/img/Serie_Temporal_2008.png',
                 caption = 'Decomposição da Série de Preço do Petróleo (Brent) - 20 anos')
 
                 st.markdown('''

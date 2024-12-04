@@ -7,7 +7,6 @@ from pages.referencias import Referencias
 from pages.intro import Home
 
 import warnings
-import os
 
 warnings.filterwarnings("ignore")
 
