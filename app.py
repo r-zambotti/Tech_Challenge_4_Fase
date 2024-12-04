@@ -1,10 +1,10 @@
 import streamlit as st
 
-from pages.analise import Analise
-from pages.dashboard import Dashboard
-from pages.conclusao import Conclusao
-from pages.referencias import Referencias
-from pages.intro import Home
+from paginas.analise import Analise
+from paginas.dashboard import Dashboard
+from paginas.conclusao import Conclusao
+from paginas.referencias import Referencias
+from paginas.intro import Home
 
 import warnings
 
@@ -17,6 +17,7 @@ st.set_page_config(layout='centered',
 with open('assets/css/style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
+
 PAGES = {
     "🏠 Home": Home,
     ":chart_with_upwards_trend: Análise": Analise,
@@ -25,7 +26,7 @@ PAGES = {
     "📖 Referências": Referencias
 }
 
-st.sidebar.title("Navegação")
+st.sidebar.title("Menu")
 selection = st.sidebar.radio("Escolha uma opção", list(PAGES.keys()),label_visibility="collapsed")
 
 page = PAGES[selection]()
