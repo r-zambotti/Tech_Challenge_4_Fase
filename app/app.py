@@ -1,28 +1,55 @@
 import streamlit as st
 
-from tabs.intro.introducao_tab import IntroTab
-from tabs.intro.metodologia_tab import MetodologiaTab
-from tabs.intro.objetivo_tab import ObjetivoTab 
-from util.layout import output_layout
+from pages.analise import Analise
+from pages.dashboard import Dashboard
+from pages.conclusao import Conclusao
+from pages.referencias import Referencias
+from pages.intro import Home
+
 import warnings
+import os
 
 warnings.filterwarnings("ignore")
 
-# layout
 st.set_page_config(layout='centered', 
                    page_title='Tech Challenge 4 - GRUPO 60', 
                    page_icon='⛽', initial_sidebar_state='auto')
 
-output_layout()
+# Caminho correto para o arquivo CSS
+css_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets', 'css', 'style.css')
 
-with open('assets\css\style.css') as f:
+# Abrir o arquivo
+with open(css_path) as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-with st.container():
-    st.header(':rainbow[FIAP Pós Tech – Data Analytics - Grupo 60]')
+PAGES = {
+    "🏠 Home": Home,
+    ":chart_with_upwards_trend: Análise": Analise,
+    "💻 Dashboard": Dashboard,
+    ":white_check_mark: Conclusão": Conclusao,
+    "📖 Referências": Referencias
+}
 
-    tab0, tab1, tab2 = st.tabs(tabs=['Introdução', 'Objetivo', 'Metodologia'])
-    
-    IntroTab(tab0)
-    ObjetivoTab(tab1)
-    MetodologiaTab(tab2)
+st.sidebar.title("Navegação")
+selection = st.sidebar.radio("Escolha uma opção", list(PAGES.keys()),label_visibility="collapsed")
+
+page = PAGES[selection]()
+page.render()  # Chamar o método render() da classe correspondente
+
+with st.sidebar:
+        st.divider()
+        
+        st.subheader("Guia de Instalação:")
+
+        #Passo 1: Criação e ativação do ambiente virtual
+        st.markdown("**1º** Crie e ative um ambiente virtual:")
+
+        st.markdown("Para Windows, use:")
+        st.code("venv\\Scripts\\activate", language="shell")
+
+        st.markdown("**2º** Instale as bibliotecas com as versões corretas:")
+        st.code("pip install -r requirements.txt", language="shell")
+
+        # Passo 3: Execução do aplicativo
+        st.markdown("**3º** Execute o aplicativo:")
+        st.code("streamlit run main.py", language="shell")

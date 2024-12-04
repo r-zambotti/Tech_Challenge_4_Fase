@@ -14,7 +14,7 @@ class InsightsTab(TabInterface):
             st.subheader(":orange[Selecione um insight]")
             # select one feature to plot with brent
             features_to_plot = ['Eleição brasileira', 'Crise Econômica de 2008', 'Pandemia - COVID-19', 'Guerra na Rússia']           
-            selected_feature = st.selectbox('', features_to_plot)
+            selected_feature = st.selectbox('', features_to_plot,label_visibility="collapsed")
             st.markdown('---')
 
             # Insight Eleição Brasileira

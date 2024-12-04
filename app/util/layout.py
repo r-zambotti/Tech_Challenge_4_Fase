@@ -1,9 +1,7 @@
-import streamlit as st
 from st_pages import show_pages, Page
 
-
 def output_layout():
-    show_pages (
+    show_pages(
         [
             Page(
                 "./app.py", 
